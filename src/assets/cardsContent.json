@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Zametka1",
+        "tag": "#tag1",
+        "text":"Lorem1",
+        "completed": true
+    },
+    {
+        "id": 2,
+        "title": "Zametka2",
+        "tag": "#tag2",
+        "text":"Lorem2",
+        "completed": false
+    },
+    {
+        "id": 3,
+        "title": "Zametka3",
+        "tag": "#tag3",
+        "text":"Lorem3",
+        "completed": true
+    }
+]

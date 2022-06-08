@@ -1,0 +1,26 @@
+<div *ngIf="!loading">
+
+    <div class="filter">
+        <input type="text" placeholder="filter by tag" [(ngModel)]="searchString">
+    </div>
+
+    <ul *ngIf="actionsService.cards.length; else defaultMessage">
+        <li *ngFor="let cardItem of actionsService.cards | search:searchString; let i=index">
+            <span [class.done]="cardItem.completed">
+                <input type="checkbox" [checked]="cardItem.completed" (change)="onChange(cardItem.id)">
+                <strong>{{i+1}}</strong>
+                {{cardItem.title}} - {{cardItem.tag}}
+            </span>
+            <small>{{cardItem.text}}</small>
+            <button class="btn btn-danger" (click)="removeCard(cardItem.id)">Delete</button>
+
+
+        </li>
+    </ul>
+
+    <ng-template #defaultMessage>
+        <p class="message">No cards now!</p>
+    </ng-template>
+</div>
+
+<p *ngIf="loading">Loading...</p>
