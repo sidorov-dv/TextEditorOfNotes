@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "",
-        "text":"",
+        "title": "Zametka1",
+        "text":"Lorem1",
         "completed": true
     }
 ]

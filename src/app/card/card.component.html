@@ -1,25 +1,30 @@
 <div *ngIf="!loading">
 
-    <div class="filter">
-        <input type="text" placeholder="filter by tag" [(ngModel)]="searchString">
+    <div class="filter row">
+        <input type="text" class="col-12" placeholder="filter by tag" [(ngModel)]="searchString">
     </div>
 
-    <ul *ngIf="actionsService.cards.length; else defaultMessage">
-        <li *ngFor="let cardItem of actionsService.cards | search:searchString; let i=index">
-            <span [class.done]="cardItem.completed">
+    <div class="row my-4" *ngIf="actionsService.cards.length>1; else defaultMessage">
+        <div class="col-8 offset-2 appearance my-4" *ngFor="let cardItem of actionsService.cards.slice(1) | search:searchString; let i=index">
+            
+                <h3 class="my-2">{{cardItem.title}}</h3>
+                <hr class="my-1">
+                <textarea placeholder="Enter text" #textAreaContent>{{cardItem.text}}</textarea>
+                <button class="btn btn-lg btn-outline-danger my-3 me-3" (click)="removeCard(cardItem.id)">Delete</button>
+                <button class="btn btn-lg btn-outline-success my-3" (click)="saveCard()">Save</button>
+          
+            <!-- <span [class.done]="cardItem.completed">
                 <input type="checkbox" [checked]="cardItem.completed" (change)="onChange(cardItem.id)">
                 <strong>{{i+1}}</strong>
                 {{cardItem.title}} - {{cardItem.tag}}
             </span>
-            <small>{{cardItem.text}}</small>
-            <button class="btn btn-danger" (click)="removeCard(cardItem.id)">Delete</button>
+            <small>{{cardItem.text}}</small> -->
+            
+        </div>
+    </div>
 
-
-        </li>
-    </ul>
-
-    <ng-template #defaultMessage>
-        <p class="message">No cards now!</p>
+    <ng-template class="row" #defaultMessage>
+        <h3 class="message col-12 my-3">Please, type text in note. No notes now!</h3>
     </ng-template>
 </div>
 

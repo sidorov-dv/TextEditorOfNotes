@@ -16,8 +16,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.actionsService.fetchCards()
-    .pipe(delay(2000))
-    .subscribe(() => this.loading = false)
+    .pipe(delay(500)).subscribe(() => this.loading = false)
   }
 
   onChange(id: number) {
@@ -25,7 +24,11 @@ export class CardComponent implements OnInit {
   }
 
   removeCard(id: number) {
-    this.actionsService.removeItem(id)
+    this.actionsService.removeCard(id)
+  }
+
+  saveCard() {
+    this.actionsService.saveCard()
   }
 
 

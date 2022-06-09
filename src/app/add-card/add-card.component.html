@@ -1,4 +1,8 @@
-<div>
-    <input type="text" placeholder="Add text" [(ngModel)]="inputText" (keydown.enter)="addTextCard()">
-    <button class="btn btn-primary" (click)="addTextCard()" >Add</button>
+<div class="row">
+    <div class="col-8 offset-2 mb-4 noteInput">
+        <input type="text" class="title" placeholder="Enter title" [(ngModel)]="inputTitle">
+        <hr class="my-1">
+        <textarea class="text" placeholder="Enter text" [(ngModel)]="inputText"></textarea>
+        <button class="btn btn-lg btn-outline-dark my-3" (click)="addTextCard()">Add note</button>
+    </div>
 </div>

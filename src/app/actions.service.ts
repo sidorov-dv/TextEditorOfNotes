@@ -10,11 +10,13 @@ export class ActionsService {
 
   constructor(private http: HttpClient) { }
 
-  cards: Cards[] = []
+  cards: Cards[] = [];
+  file!: string;
 
-  fetchCards(): Observable<Cards[]> {
+
+  fetchCards():Observable<Cards[]> {
     return this.http.get<Cards[]>('./assets/cardsContent.json')
-    .pipe(tap(cards => this.cards = cards))
+    .pipe(tap((item) => this.cards = item))
   }
 
   onToggle(id: number) {
@@ -22,12 +24,19 @@ export class ActionsService {
     this.cards[idx].completed = !this.cards[idx].completed
   }
 
-  removeItem(id: number) {
+  removeCard(id: number) {
     this.cards = this.cards.filter(item => item.id !== id)
   }
 
+  saveCard() {
+    this.cards = {...this.cards}
+  }
+
   addCard(card: Cards) {
-    this.cards.push(card)
+    this.cards.push(card);
+    console.log(this.cards);
+    this.file = JSON.stringify(this.cards);
+    console.log(this.file);
   }
 
 
