@@ -3,6 +3,6 @@
         <input type="text" class="title" placeholder="Enter title" [(ngModel)]="inputTitle">
         <hr class="my-1">
         <textarea class="text" placeholder="Enter text" [(ngModel)]="inputText"></textarea>
-        <button class="btn btn-lg btn-outline-dark my-3" (click)="addTextCard()">Add note</button>
+        <button class="btn btn-lg btn-outline-dark my-3" [disabled]="!(inputText && inputTitle)" (click)="addTextCard()">Add note</button>
     </div>
 </div>

@@ -7,8 +7,5 @@ import { Cards } from './Cards';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  
   title = 'Text Editor';
-
-
 }

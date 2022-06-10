@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionsService } from '../actions.service';
-import { Cards } from '../Cards'; 
+import { Cards } from '../Cards';
 
 @Component({
   selector: 'app-add-card',
@@ -12,7 +12,7 @@ export class AddCardComponent implements OnInit {
   constructor(private actionsService: ActionsService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   inputTitle: string = ''
@@ -22,14 +22,13 @@ export class AddCardComponent implements OnInit {
     const itemOfCards: Cards = {
       id: Date.now(),
       title: this.inputTitle,
-      completed: false,
+      completed: true,
       text: this.inputText,
     }
 
     this.actionsService.addCard(itemOfCards);
     this.inputTitle = '';
     this.inputText = '';
-  
   }
 
 }
