@@ -11,12 +11,12 @@ export class AddCardComponent implements OnInit {
 
   constructor(private actionsService: ActionsService) { }
 
+  inputTitle: string = '';
+  inputText: string = '';
+
   ngOnInit(): void {
 
   }
-
-  inputTitle: string = ''
-  inputText: string = ''
 
   addTextCard() {
     const itemOfCards: Cards = {
@@ -29,6 +29,10 @@ export class AddCardComponent implements OnInit {
     this.actionsService.addCard(itemOfCards);
     this.inputTitle = '';
     this.inputText = '';
+  }
+
+  createTag(input: string) {
+    this.actionsService.createTags(input);
   }
 
 }

@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.actionsService.subCards.subscribe((cards: any) => this.cardCollections = cards)
+   // this.actionsService.subCards.subscribe((search: any) => this.searchCards = search)
    // this.cardCollections = this.actionsService.cards
     // this.actionsService.fetchCards()
     // .pipe(delay(500)).subscribe(() => this.loading = false)
@@ -33,6 +34,10 @@ export class CardComponent implements OnInit {
 
   saveCard(id: number, title: string, text: string) {
     this.actionsService.saveCard(id, title, text)
+  }
+
+  showAllCards() {
+    this.actionsService.showAllCards();
   }
 
 

@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { AddCardComponent } from './add-card/add-card.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './search.pipe';
+import { TagsComponent } from './tags/tags.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SearchPipe } from './search.pipe';
     CardComponent,
     AddCardComponent,
     SearchPipe,
+    TagsComponent,
     
   ],
   imports: [

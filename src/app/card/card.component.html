@@ -1,34 +1,29 @@
-<div class="filter row">
-    <input type="text" class="col-12" placeholder="filter by tag" [(ngModel)]="searchString">
-</div>
-
-<div class="row my-4" *ngIf="cardCollections.length; else defaultMessage">
-    <div class="col-8 offset-2 noteInput my-4"
+<div class="row my-4 justify-content-center" *ngIf="cardCollections.length; else defaultMessage">
+    <div class="col-10">
+        <input type="text" placeholder="filter by tag" [(ngModel)]="searchString">
+    </div>
+    <div class="col-10">
+        <button class="btn btn-primary mt-4" (click)="showAllCards()">Show all</button>
+    </div>
+    <div class="col-10 noteInput my-4"
         *ngFor="let cardItem of cardCollections | search:searchString; let i=index">
-
-        <!-- <h3 class="my-2">{{cardItem.title}}</h3>
-        <hr class="my-1">
-        <textarea placeholder="Enter text" #textAreaContent>{{cardItem.text}}</textarea>
-        <button class="btn btn-lg btn-outline-danger my-3 me-3" (click)="removeCard(cardItem.id)">Delete</button>
-        <button class="btn btn-lg btn-outline-success my-3" (click)="saveCard()">Save</button> -->
 
         <input type="text" class="title" placeholder="Enter title" [(ngModel)]="cardItem.title" #inputContent>
         <hr class="my-1">
         <textarea class="text" placeholder="Enter text" [(ngModel)]="cardItem.text" #textAreaContent></textarea>
-        <div class="btn-container mb-3">
-            <button class="btn btn-lg btn-outline-danger me-3" (click)="removeCard(cardItem.id)">Delete</button>
-            <button class="btn btn-lg btn-outline-success" (click)="saveCard(cardItem.id, cardItem.title, cardItem.text)">Save Edit</button>
+        <time class="my-2">{{cardItem.id | date: 'medium'}}</time>
+        <div class="btn-container mb-3">  
+            <button class="btn btn-sm btn-outline-danger me-3" (click)="removeCard(cardItem.id)">Delete</button>
+            <button class="btn btn-sm btn-outline-success" (click)="saveCard(cardItem.id, cardItem.title, cardItem.text)">Save Edit</button>
         </div>
-        <!-- <span [class.done]="cardItem.completed">
-                <input type="checkbox" [checked]="cardItem.completed" (change)="onChange(cardItem.id)">
-                <strong>{{i+1}}</strong>
-                {{cardItem.title}} - {{cardItem.tag}}
-            </span>
-            <small>{{cardItem.text}}</small> -->
-
     </div>
+    
 </div>
 
-<ng-template class="row" #defaultMessage>
-    <h3 class="message col-12 my-3">Please, type text in note. No notes now!</h3>
+<ng-template #defaultMessage>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h5 class="message my-4">Please, type text in note. No notes now!</h5>
+        </div>
+    </div>
 </ng-template>

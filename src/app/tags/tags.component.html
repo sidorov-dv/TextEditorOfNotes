@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-12 tags-content" *ngFor="let tagItem of tags; let i = index">
+        <div class="tagName">
+            <span>{{i+1}}</span>
+            <p class="d-none d-md-inline-block">{{tagItem}}</p>
+        </div>
+        <button class="btn btn-sm btn-danger" (click)="deleteTag(tagItem)">Delete Tag</button>
+        <button class="btn btn-sm btn-info" (click)="findCardsByTag(tagItem)">Find cards</button>
+    </div>
+</div>

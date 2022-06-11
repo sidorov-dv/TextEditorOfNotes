@@ -1,8 +1,8 @@
-<div class="row">
-    <div class="col-8 offset-2 mb-4 noteInput">
-        <input type="text" class="title" placeholder="Enter title" [(ngModel)]="inputTitle">
+<div class="row justify-content-center">
+    <div class="col-10 mb-4 noteInput">
+        <input type="text" class="title" placeholder="Enter title" [(ngModel)]="inputTitle" (change)="createTag(inputTitle)">
         <hr class="my-1">
         <textarea class="text" placeholder="Enter text" [(ngModel)]="inputText"></textarea>
-        <button class="btn btn-lg btn-outline-dark my-3" [disabled]="!(inputText && inputTitle)" (click)="addTextCard()">Add note</button>
+        <button class="btn btn-outline-dark my-3" [disabled]="!(inputText && inputTitle)" (click)="addTextCard()">Add note</button>
     </div>
 </div>
