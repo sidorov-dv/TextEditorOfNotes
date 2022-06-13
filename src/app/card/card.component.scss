@@ -1,7 +1,6 @@
 .message {
     text-align: center;
 }
-
 .noteInput {
     display: flex;
     flex-direction: column;
@@ -38,5 +37,12 @@
             max-width: 100px;
         }
     }
-
+}
+.find {
+    min-height: 40px;
+    max-width: 200px;
+    padding: 5px;
+    border: 2px #000 solid;
+    border-radius: 10px;
+    font-size: 1.2rem;
 }

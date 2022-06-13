@@ -1,22 +1,21 @@
-.tags-content {
-    display: flex;
-    align-items: center;
-   // background-color: rgba($color: #ecd490, $alpha: 1.0);
-   // border-radius: 5px;
-    // border: 1px solid #000;
-    .tagName {
-        flex: 1 1 100px;
-        p {
-            margin: 5px;
-            font-weight: bold;
-        }
-        span {
-            font-weight: bold;
-        }
+.tagInput {
+    max-width: 200px;
+    margin: 10px;
+    input {
+        padding: 5px;
+        border-radius: 10px;
+        min-height: 40px;
+        max-width: 150px;
+        border: 2px #000 solid;
+        font-size: 1.2rem;
     }
 
+}
+.tagsContent {
+    display: flex;
+    align-items: center;
     button {
-        flex: 0 1 86px;
+        flex: 1 1 86px;
         margin: 5px;
     }
 } 

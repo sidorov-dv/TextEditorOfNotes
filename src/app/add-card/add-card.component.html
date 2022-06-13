@@ -2,7 +2,7 @@
     <div class="col-10 mb-4 noteInput">
         <input type="text" class="title" placeholder="Enter title" [(ngModel)]="inputTitle" (change)="createTag(inputTitle)">
         <hr class="my-1">
-        <textarea class="text" placeholder="Enter text" [(ngModel)]="inputText"></textarea>
+        <textarea class="text" placeholder="Enter text" [(ngModel)]="inputText" (change)="createTag(inputText)"></textarea>
         <button class="btn btn-outline-dark my-3" [disabled]="!(inputText && inputTitle)" (click)="addTextCard()">Add note</button>
     </div>
 </div>

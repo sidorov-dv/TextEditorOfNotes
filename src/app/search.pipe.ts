@@ -10,10 +10,8 @@ export class SearchPipe implements PipeTransform {
       if(!search.trim()) {
         return cards
       }
-
       return cards.filter(card => {
         return card.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
       })
   }
-
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionsService } from '../actions.service';
-import { delay } from 'rxjs/operators';
-import { Cards } from '../Cards'; 
+import { Cards } from '../Cards';
 
 @Component({
   selector: 'app-card',
@@ -12,20 +11,15 @@ export class CardComponent implements OnInit {
 
   constructor(public actionsService: ActionsService) { }
 
-  loading = false
-  searchString = ''
-  cardCollections!: Cards[]
+  searchString = '';
+  cardCollections!: Cards[];
 
   ngOnInit(): void {
-    this.actionsService.subCards.subscribe((cards: any) => this.cardCollections = cards)
-   // this.actionsService.subCards.subscribe((search: any) => this.searchCards = search)
-   // this.cardCollections = this.actionsService.cards
-    // this.actionsService.fetchCards()
-    // .pipe(delay(500)).subscribe(() => this.loading = false)
+    this.actionsService.subCards.subscribe((cards: any) => this.cardCollections = cards);
   }
 
-  onChange(id: number) {
-    this.actionsService.onToggle(id)
+  createTag(curText: string) {
+    this.actionsService.createTags(curText)
   }
 
   removeCard(id: number) {
@@ -40,6 +34,7 @@ export class CardComponent implements OnInit {
     this.actionsService.showAllCards();
   }
 
-
-
+  deleteAllCards() {
+    this.actionsService.deleteAllCards()
+  }
 }
